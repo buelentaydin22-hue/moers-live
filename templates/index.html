@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+    <h1>News aus Moers & der Welt</h1>
+    <p>
+        Alle wichtigen Schlagzeilen, lokal und global – automatisch gesammelt und übersichtlich sortiert.
+    </p>
+
+    <div class="hero-badges">
+        <span class="badge">🔁 Live Feed</span>
+        <span class="badge">📍 Lokal & Region</span>
+        <span class="badge">📰 Tagesschau, Spiegel, WDR u.v.m.</span>
+    </div>
+</section>
+
+{# === Beiträge nach Kategorien aufteilen === #}
+{% set local_posts = posts | selectattr('category','equalto','local') | list %}
+{% set news_posts = posts | selectattr('category','equalto','news') | list %}
+{% set sports_posts = posts | selectattr('category','equalto','sports') | list %}
+{% set tech_posts = posts | selectattr('category','equalto','tech') | list %}
+{% set business_posts = posts | selectattr('category','equalto','business') | list %}
+
+{# === Lokale News === #}
+{% if local_posts %}
+<section class="section">
+    <div class="section-header">
+        <div>
+            <h2 class="section-title">Moers & Niederrhein</h2>
+            <p class="section-subtitle">Lokale News aus deiner Region</p>
+        </div>
+    </div>
+
+    <div class="feed-row">
+        {% for p in local_posts[:10] %}
+        <article class="feed-card">
+            {% if p.image %}
+            <div class="feed-image-wrapper">
+                <img src="{{ p.image }}" class="feed-image" alt="{{ p.title }}">
+            </div>
+            {% endif %}
+
+            <div class="feed-card-body">
+                <header class="feed-card-header">
+                    <span class="feed-source">{{ p.source }}</span>
+                    <span class="feed-brand-tag">Moers Live</span>
+                    {% if p.category %}
+                    <span class="feed-category feed-category-{{ p.category }}">
+                        {{ p.category|capitalize }}
+                    </span>
+                    {% endif %}
+                </header>
+                <h3 class="feed-title">{{ p.title }}</h3>
+                <p class="feed-summary">{{ p.summary }}</p>
+            </div>
+
+            <footer class="feed-card-footer">
+                <span class="feed-date">{{ p.published }}</span>
+                <a href="{{ p.url }}" target="_blank" class="feed-link">Zum Artikel</a>
+            </footer>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{# === Top-News (überregional) === #}
+{% if news_posts %}
+<section class="section">
+    <div class="section-header">
+        <div>
+            <h2 class="section-title">Top-News</h2>
+            <p class="section-subtitle">Wichtige Meldungen aus Deutschland und der Welt</p>
+        </div>
+    </div>
+
+    <div class="feed-row">
+        {% for p in news_posts[:10] %}
+        <article class="feed-card">
+            {% if p.image %}
+            <div class="feed-image-wrapper">
+                <img src="{{ p.image }}" class="feed-image" alt="{{ p.title }}">
+            </div>
+            {% endif %}
+
+            <div class="feed-card-body">
+                <header class="feed-card-header">
+                    <span class="feed-source">{{ p.source }}</span>
+                    <span class="feed-brand-tag">Moers Live</span>
+                    {% if p.category %}
+                    <span class="feed-category feed-category-{{ p.category }}">
+                        {{ p.category|capitalize }}
+                    </span>
+                    {% endif %}
+                </header>
+                <h3 class="feed-title">{{ p.title }}</h3>
+                <p class="feed-summary">{{ p.summary }}</p>
+            </div>
+
+            <footer class="feed-card-footer">
+                <span class="feed-date">{{ p.published }}</span>
+                <a href="{{ p.url }}" target="_blank" class="feed-link">Zum Artikel</a>
+            </footer>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{# === Werbe-Platzhalter für Kunden === #}
+<section class="ad-section">
+    <h2>Werbepartner aus Moers</h2>
+    <p>Hier könnten deine Angebote oder Veranstaltungen stehen – auf moers-live.de und bei Instagram <strong>@moers_live</strong>.</p>
+
+    <div class="ad-row">
+        <div class="ad-card">
+            <span class="ad-label">Anzeige – Platzhalter</span>
+            <h3>Dein Restaurant / Café</h3>
+            <p>Eigenes Bild, eigener Text, eigener Link – optimal für mehr Gäste und Sichtbarkeit in Moers.</p>
+            <p class="ad-cta">Interesse? Menüpunkt „Werbung“ anklicken.</p>
+        </div>
+        <div class="ad-card">
+            <span class="ad-label">Anzeige – Platzhalter</span>
+            <h3>Dein Handwerksbetrieb</h3>
+            <p>Lokale Reichweite für deine Dienstleistungen: Website + Instagram-Kampagne auf @moers_live.</p>
+            <p class="ad-cta">Interesse? Menüpunkt „Werbung“ anklicken.</p>
+        </div>
+        <div class="ad-card">
+            <span class="ad-label">Anzeige – Platzhalter</span>
+            <h3>Dein Event</h3>
+            <p>Konzerte, Feste, Eröffnungen – wir bringen deine Veranstaltung in den Feed und auf Instagram.</p>
+            <p class="ad-cta">Interesse? Menüpunkt „Werbung“ anklicken.</p>
+        </div>
+    </div>
+</section>
+
+{# === Instagram-Sektion === #}
+<section class="insta-section">
+    <div class="insta-box">
+        <h2>@moers_live auf Instagram</h2>
+        <p>
+            Die wichtigsten Highlights aus Moers & Niederrhein posten wir auch auf Instagram.
+            Folge uns auf <strong>@moers_live</strong> – oder buche direkt einen Sponsored Post.
+        </p>
+        <a href="https://www.instagram.com/moers_live" class="insta-button" target="_blank">
+            Instagram öffnen
+        </a>
+    </div>
+</section>
+
+{% endblock %}

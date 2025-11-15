@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title or "Moers Live" }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <a href="{{ url_for('index') }}" class="brand">
+        <img src="{{ url_for('static', filename='logo.png') }}" class="logo" alt="Moers Live Logo">
+        <div class="brand-text">
+            <span class="site-title">Moers Live</span>
+            <span class="site-tagline">Lokal · Ehrlich · Schnell</span>
+        </div>
+    </a>
+
+    <div class="nav-links">
+        <a href="{{ url_for('index') }}">Start</a>
+        <a href="{{ url_for('local') }}">Lokal</a>
+        <a href="{{ url_for('events') }}">Events</a>
+        <a href="{{ url_for('events') }}#sport">Sport</a>
+        <a href="{{ url_for('events') }}#digital">Digital</a>
+        <a href="{{ url_for('kontakt') }}">Werbung</a>
+    </div>
+</nav>
+
+<!-- BRAND BANNER -->
+<div class="brand-banner">
+    <span class="brand-badge">MOERS LIVE</span>
+    <span class="brand-textline">News & Werbung für Moers und den Niederrhein – auch auf Instagram: @moers_live</span>
+</div>
+
+<!-- HAUPTINHALT -->
+<div class="page">
+    {% block content %}{% endblock %}
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <span>&copy; 2025 Moers Live – Bülent Aydin</span>
+    <span>Instagram: <a href="https://www.instagram.com/moers_live" target="_blank">@moers_live</a></span>
+    <span>
+        <a href="{{ url_for('impressum') }}">Impressum</a> · 
+        <a href="{{ url_for('datenschutz') }}">Datenschutz</a>
+    </span>
+</footer>
+
+</body>
+</html>

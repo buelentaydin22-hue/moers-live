@@ -1,0 +1,400 @@
+/* ========== Basis & Layout ========== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #1b3b7a 0, #050814 45%, #020308 100%);
+    color: #f5f7ff;
+}
+
+/* ========== NAVBAR ========== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(4, 18, 48, 0.96);
+    backdrop-filter: blur(12px);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.logo {
+    height: 42px;
+    width: 42px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.site-tagline {
+    font-size: 12px;
+    opacity: 0.75;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #e3e7ff;
+    margin-left: 18px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+/* ========== Seite & Hero ========== */
+
+.page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+}
+
+.hero {
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 28px;
+    margin: 0 0 8px;
+}
+
+.hero p {
+    margin: 0 0 12px;
+    color: #c3c8e8;
+}
+
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.badge {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(9, 38, 94, 0.6);
+}
+
+/* ========== Rubriken / Sektionen ========== */
+
+.section {
+    margin-top: 26px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin: 0;
+}
+
+.section-subtitle {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: #c3c8e8;
+}
+
+/* horizontale Reihen wie bei großen Newsportalen */
+
+.feed-row {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.feed-row::-webkit-scrollbar {
+    height: 6px;
+}
+
+.feed-row::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+}
+
+/* ========== Karten mit Bild ========== */
+
+.feed-card {
+    background: linear-gradient(145deg, #101322, #13172b);
+    border-radius: 14px;
+    min-width: 280px;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, border 0.12s ease;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.feed-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+    border-color: rgba(100, 181, 246, 0.6);
+}
+
+.feed-image-wrapper {
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    overflow: hidden;
+    max-height: 180px;
+}
+
+.feed-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.feed-card-body {
+    padding: 10px 12px 6px;
+}
+
+.feed-card-footer {
+    padding: 0 12px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Header & Texte innerhalb der Karten */
+
+.feed-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+
+.feed-source {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9ea5ce;
+}
+
+.feed-category {
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Kategorien einfärben */
+
+.feed-category-news { background: rgba(25, 118, 210, 0.3); }
+.feed-category-local { background: rgba(67, 160, 71, 0.3); }
+.feed-category-tech { background: rgba(126, 87, 194, 0.3); }
+.feed-category-business { background: rgba(255, 179, 0, 0.3); }
+.feed-category-sports { background: rgba(239, 83, 80, 0.3); }
+.feed-category-weather { background: rgba(2, 136, 209, 0.3); }
+.feed-category-digital { background: rgba(255, 64, 129, 0.3); }
+
+.feed-title {
+    font-size: 16px;
+    margin: 4px 0 6px;
+}
+
+.feed-summary {
+    font-size: 14px;
+    color: #cdd2f0;
+    margin: 0 0 10px;
+}
+
+.feed-date {
+    font-size: 11px;
+    color: #8f96c2;
+}
+
+.feed-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: #64b5f6;
+    text-decoration: none;
+}
+
+.feed-link:hover {
+    text-decoration: underline;
+}
+
+.no-posts {
+    color: #cdd2f0;
+}
+
+/* ========== Footer ========== */
+
+.footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 12px 16px 18px;
+    text-align: center;
+    font-size: 12px;
+    color: #a3aacd;
+    background: rgba(3, 9, 26, 0.96);
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* ========== Mobile Anpassungen ========== */
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .nav-links {
+        margin-top: 4px;
+        gap: 10px;
+    }
+
+    .feed-card {
+        min-width: 260px;
+        max-width: 260px;
+    }
+}
+
+/* === Werbe-Platzhalter (Ad-Section) === */
+
+.ad-section {
+    margin-top: 30px;
+}
+
+.ad-section h2 {
+    margin-bottom: 4px;
+}
+
+.ad-section p {
+    margin-top: 0;
+    color: #c3c8e8;
+}
+
+.ad-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.ad-card {
+    flex: 1 1 260px;
+    background: linear-gradient(145deg, #1c2340, #12162a);
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    border: 1px dashed rgba(255, 255, 255, 0.25);
+}
+
+.ad-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: rgba(229, 57, 53, 0.9);
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
+.ad-cta {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #ffca28;
+}
+
+/* === Instagram-Teaser === */
+
+.insta-section {
+    margin-top: 32px;
+}
+
+.insta-box {
+    background: radial-gradient(circle at left, #1f3b75 0, #0a1024 55%, #050814 100%);
+    border-radius: 16px;
+    padding: 18px 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.insta-box h2 {
+    margin: 0;
+}
+
+.insta-box p {
+    margin: 0;
+    color: #cfd5ff;
+}
+
+.insta-button {
+    align-self: flex-start;
+    margin-top: 6px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #e53935, #0d47a1);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.insta-button:hover {
+    filter: brightness(1.1);
+}
+
+/* Mobile Anpassung für Ads/Instagram */
+
+@media (max-width: 600px) {
+    .ad-row {
+        flex-direction: column;
+    }
+}
