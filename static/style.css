@@ -1,65 +1,63 @@
+/* ===================== GLOBAL ===================== */
+
 body {
     margin: 0;
-    background: #05070D;
-    color: #E5E7F1;
-    font-family: 'Inter', sans-serif;
+    font-family: Inter, sans-serif;
+    background: #0b1220;
+    color: white;
 }
 
+/* ===================== NAVBAR ===================== */
+
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 14px 24px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(14px);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+/* Logo */
 .navbar img {
-    height: 32px;           /* kleinere elegante Größe */
-    width: auto;            /* niemals verzerren */
-    margin-right: 12px;     
-    image-rendering: auto;  /* maximale Schärfe */
+    height: 42px;         
+    width: auto;          
+    margin-right: 16px;
+    object-fit: contain;
+    image-rendering: auto;
 }
 
-
+/* Brand Container */
 .brand {
     display: flex;
     align-items: center;
     text-decoration: none;
+    gap: 10px;
 }
 
-
-.brand-text {
-    display: flex;
-    flex-direction: column;
+/* Brand Text */
+.brand-text h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: 700;
 }
 
-.site-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    background: linear-gradient(90deg, #19A3FF, #FF2E9F);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.brand-text span {
+    display: block;
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 2px;
+    opacity: 0.85;
 }
 
-.site-tagline {
-    font-size: 11px;
-    opacity: 0.8;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
+/* ===================== SECTION STYLES ===================== */
 
-.nav-links a {
-    margin-left: 18px;
-    text-decoration: none;
-    color: #E5E7F1;
-    font-weight: 600;
-    opacity: 0.9;
-}
-
-.nav-links a:hover {
-    opacity: 1;
-}
-
-.content {
-    padding: 20px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    opacity: 0.6;
-    font-size: 14px;
+section {
+    padding: 40px 20px;
 }
